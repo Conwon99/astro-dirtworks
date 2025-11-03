@@ -120,7 +120,7 @@ const Footer = () => {
             <div className="text-white/70 text-sm text-center">
               Professional landscaping and building services in Ayrshire and Glasgow.
               <br />
-              Website Design by <span className="text-white font-semibold">cdwebdesign</span>
+              Website Design by <a href="https://codapixel.com/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-gray-300 transition-colors">Codapixel</a>
             </div>
           </div>
         </div>

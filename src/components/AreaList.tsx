@@ -17,3 +17,4 @@ export const AreaList = ({ areas }: AreaListProps) => {
   );
 };
 
+

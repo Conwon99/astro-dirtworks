@@ -18,3 +18,4 @@ export const TownCard = ({ town }: TownCardProps) => {
   );
 };
 
+
