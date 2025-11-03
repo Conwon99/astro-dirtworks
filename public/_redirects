@@ -1,0 +1,22 @@
+# Netlify redirects file for SPA routing
+# Redirect all 404s to index.html for client-side routing
+/*    /index.html   200
+
+# Specific redirects for better SEO
+/tree-surgery    /index.html   200
+/lawn-mowing     /index.html   200
+/troon           /index.html   200
+
+# Redirect old URLs if any
+/about           /#about       301
+/services        /#services    301
+/contact         /#contact-form 301
+
+# Handle common bot requests
+/robots.txt      /robots.txt   200
+/sitemap.xml     /sitemap.xml  200
+/favicon.ico     /favicon.ico  200
+
+# Prevent 404s for common requests
+/admin/*         /index.html   404
+/api/*           /index.html   404

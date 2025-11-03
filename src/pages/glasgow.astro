@@ -1,0 +1,250 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { ServiceCard } from '../components/ServiceCard';
+import { AreaCard } from '../components/AreaCard';
+import { CheckCircle, Star, MapPin, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Dirtworks Landscaping Ltd - Glasgow",
+  "description": "Professional landscaping and building services in Glasgow including garden maintenance, groundworks, patios, fencing, decking, pressure washing, and building services.",
+  "url": "https://dirtworkslandscaping.co.uk/glasgow",
+  "telephone": "+447403725998",
+  "email": "dirtworkslandscaping@outlook.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Glasgow",
+    "addressRegion": "Glasgow",
+    "addressCountry": "Scotland"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Glasgow"
+  },
+  "serviceType": ["Landscaping", "Garden Maintenance", "Groundworks", "Patios", "Fencing", "Decking", "Pressure Washing", "Building Services"],
+  "openingHours": "Mo-Fr 08:00-18:00,Sa 09:00-16:00",
+  "priceRange": "Quote on request"
+};
+
+const glasgowAreas = {
+  "City Center": ["Glasgow City Center", "Merchant City", "West End", "East End"],
+  "North Glasgow": ["Maryhill", "Possilpark", "Springburn", "Ruchill"],
+  "South Glasgow": ["Govan", "Pollokshields", "Shawlands", "Newlands"],
+  "East Glasgow": ["Dennistoun", "Bridgeton", "Shettleston", "Tollcross"],
+  "West Glasgow": ["Partick", "Whiteinch", "Scotstoun", "Yoker"],
+  "Outer Areas": ["Bearsden", "Milngavie", "Bishopbriggs", "Kirkintilloch"]
+};
+---
+
+<Layout
+  title="Landscaping Services Glasgow | Garden Maintenance & Building Services | Dirtworks"
+  description="Professional landscaping services in Glasgow. Garden maintenance, groundworks, patios, fencing, decking, pressure washing, and building services across Glasgow."
+  keywords="landscaping Glasgow, garden maintenance Glasgow, groundworks Glasgow, patio installation Glasgow, fencing Glasgow, decking Glasgow, pressure washing Glasgow, building services Glasgow"
+  canonical="https://dirtworkslandscaping.co.uk/glasgow"
+  ogType="service"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-blue-50 to-green-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Landscaping Services Glasgow
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700 mb-8">
+              Professional Garden & Building Services
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Serving Glasgow with comprehensive landscaping, garden maintenance, and building services. 
+              From the city center to the suburbs, we bring professional expertise and quality 
+              craftsmanship to every project across Glasgow.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="glasgow_page" serviceName="Glasgow Location" client:load />
+              <CallButton pageName="glasgow_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/dirt Landscaping Hero Background.webp" 
+              alt="Professional landscaping services in Glasgow"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Glasgow Areas Served */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Areas We Serve in Glasgow
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We provide landscaping and building services across all areas of Glasgow, 
+            from the city center to the surrounding suburbs and districts.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AreaCard client:load title="City Center" areas={glasgowAreas["City Center"]} />
+          <AreaCard client:load title="North Glasgow" areas={glasgowAreas["North Glasgow"]} />
+          <AreaCard client:load title="South Glasgow" areas={glasgowAreas["South Glasgow"]} />
+          <AreaCard client:load title="East Glasgow" areas={glasgowAreas["East Glasgow"]} />
+          <AreaCard client:load title="West Glasgow" areas={glasgowAreas["West Glasgow"]} />
+          <AreaCard client:load title="Outer Areas" areas={glasgowAreas["Outer Areas"]} />
+        </div>
+      </div>
+    </section>
+
+    {/* Services in Glasgow */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Services in Glasgow
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive landscaping and building services tailored to Glasgow's 
+            unique urban environment and weather conditions.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard client:load title="Garden Maintenance" description="Regular garden maintenance services including lawn care, hedge trimming, and seasonal garden preparation." items={["Lawn mowing and care", "Hedge trimming", "Garden cleanup", "Seasonal maintenance"]} />
+          <ServiceCard client:load title="Landscaping & Groundworks" description="Complete landscaping services including site preparation, drainage systems, and outdoor design." items={["Site preparation", "Drainage systems", "Landscaping design", "Excavation work"]} />
+          <ServiceCard client:load title="Patios, Fencing & Decking" description="Professional installation of patios, fencing, and decking to enhance your outdoor living space." items={["Patio installation", "Fencing services", "Decking installation", "Repair and maintenance"]} />
+          <ServiceCard client:load title="Pressure Washing" description="Professional cleaning services for driveways, patios, and outdoor surfaces to restore their appearance." items={["Driveway cleaning", "Patio restoration", "Stain removal", "Soft-wash services"]} />
+          <ServiceCard client:load title="Building Services" description="Professional building and construction services including extensions, brickwork, and general building work." items={["Small extensions", "Brickwork services", "General building", "Renovation work"]} />
+          <ServiceCard client:load title="Emergency Services" description="Emergency response services for storm damage, urgent repairs, and immediate assistance needs." items={["Storm damage repair", "Emergency fencing", "Urgent maintenance", "24/7 response"]} />
+        </div>
+      </div>
+    </section>
+
+    {/* Why Choose Us for Glasgow */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Dirtworks in Glasgow?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Local expertise, professional service, and commitment to quality make us 
+            the preferred choice for landscaping and building services in Glasgow.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Local Knowledge</h3>
+            <p class="text-gray-600">
+              Deep understanding of Glasgow's urban environment, soil conditions, 
+              and local building regulations.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Service</h3>
+            <p class="text-gray-600">
+              Professional service with attention to detail and commitment to 
+              exceeding customer expectations.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Reliable Team</h3>
+            <p class="text-gray-600">
+              Experienced, skilled professionals who deliver projects on time 
+              and within budget.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Free Quotes</h3>
+            <p class="text-gray-600">
+              No-obligation quotes for all services with transparent pricing 
+              and detailed project specifications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Transform Your Glasgow Property?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional landscaping and building services in Glasgow. 
+          Our expert team is ready to enhance your property with quality workmanship.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="glasgow_page" serviceName="Glasgow Location" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="glasgow_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="glasgow_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="glasgow_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+

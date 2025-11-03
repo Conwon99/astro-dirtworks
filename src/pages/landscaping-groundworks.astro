@@ -1,0 +1,285 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { ServiceCard } from '../components/ServiceCard';
+import { CheckCircle, Star, MapPin, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Landscaping & Groundworks Services",
+  "description": "Complete landscaping and groundworks services including site preparation, drainage systems, foundations, and excavation in Glasgow and Ayrshire.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dirtworks Landscaping Ltd",
+    "url": "https://dirtworkslandscaping.co.uk/",
+    "telephone": "+447403725998",
+    "email": "dirtworkslandscaping@outlook.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ayr",
+      "addressRegion": "Ayrshire",
+      "addressCountry": "Scotland"
+    },
+    "areaServed": ["Glasgow", "Ayrshire", "Ayr", "Kilmarnock", "Irvine", "Troon", "Prestwick"]
+  },
+  "serviceType": "Landscaping & Groundworks",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Glasgow and Ayrshire"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceRange": "Quote on request",
+    "availability": "InStock"
+  }
+};
+---
+
+<Layout
+  title="Landscaping & Groundworks Glasgow | Site Preparation & Outdoor Design Ayrshire"
+  description="Complete landscaping and groundworks services in Glasgow and Ayrshire. Site preparation, drainage systems, foundations, and excavation. Professional contractors."
+  keywords="landscaping groundworks Kilmarnock, site preparation Glasgow, groundworks contractor Ayrshire, landscaping services Glasgow, excavation Ayrshire, drainage systems Glasgow"
+  canonical="https://dirtworkslandscaping.co.uk/landscaping-groundworks"
+  ogType="service"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-blue-50 to-green-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Landscaping & Groundworks
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700 mb-8">
+              Glasgow & Ayrshire
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Complete site preparation and outdoor landscaping solutions. From initial excavation 
+              and drainage systems to foundations and final landscaping, we handle every aspect 
+              of your groundworks project across Glasgow and Ayrshire.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="landscaping_groundworks_page" serviceName="Landscaping & Groundworks" client:load />
+              <CallButton pageName="landscaping_groundworks_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/Dirt Works at Groundwork..webp" 
+              alt="Professional landscaping and groundworks services in Glasgow and Ayrshire"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services Overview */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Groundworks Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Professional groundworks and landscaping services designed to transform your outdoor 
+            space from concept to completion.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard client:load title="Site Preparation" description="Complete site clearance, excavation, and preparation for your landscaping project." items={["Site clearance and excavation", "Soil removal and disposal", "Ground leveling and grading", "Access route preparation"]} />
+          <ServiceCard client:load title="Drainage Systems" description="Professional drainage solutions to prevent flooding and water damage." items={["French drain installation", "Surface water drainage", "Soakaway systems", "Drainage pipe installation"]} />
+          <ServiceCard client:load title="Foundations" description="Solid foundations for patios, driveways, and other hardscaping features." items={["Concrete foundations", "Base preparation", "Reinforcement installation", "Foundation leveling"]} />
+          <ServiceCard client:load title="Excavation" description="Professional excavation services for landscaping and construction projects." items={["Trench excavation", "Bulk excavation", "Precision digging", "Waste removal"]} />
+          <ServiceCard client:load title="Landscaping Design" description="Complete outdoor landscaping design and implementation services." items={["Garden design planning", "Plant selection and placement", "Hardscaping integration", "Landscape installation"]} />
+          <ServiceCard client:load title="Project Management" description="Complete project management from initial consultation to final completion." items={["Project planning and scheduling", "Material sourcing and delivery", "Quality control and inspection", "Timeline management"]} />
+        </div>
+      </div>
+    </section>
+
+    {/* Process Section */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Groundworks Process
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We follow a systematic approach to ensure every groundworks project is completed 
+            to the highest standards, on time and within budget.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">1</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Site Survey</h3>
+            <p class="text-gray-600">
+              Comprehensive site assessment including soil analysis, drainage evaluation, 
+              and access planning.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">2</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Design & Planning</h3>
+            <p class="text-gray-600">
+              Detailed project planning including design drawings, material specifications, 
+              and timeline development.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">3</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Groundworks</h3>
+            <p class="text-gray-600">
+              Professional excavation, drainage installation, foundation work, and 
+              site preparation.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">4</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Landscaping</h3>
+            <p class="text-gray-600">
+              Final landscaping installation including planting, hardscaping, and 
+              finishing touches.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Why Choose Us */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Dirtworks for Groundworks?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            With years of experience in groundworks and landscaping, we bring expertise, 
+            reliability, and quality to every project.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Expert Knowledge</h3>
+            <p class="text-gray-600">
+              Deep understanding of Scottish soil conditions, drainage requirements, 
+              and local building regulations.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Professional Equipment</h3>
+            <p class="text-gray-600">
+              Modern, well-maintained equipment for efficient and precise groundworks 
+              operations.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Local Expertise</h3>
+            <p class="text-gray-600">
+              Serving Glasgow and Ayrshire with knowledge of local conditions, 
+              suppliers, and regulations.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Free Quotes</h3>
+            <p class="text-gray-600">
+              No-obligation quotes for all groundworks projects with transparent 
+              pricing and detailed specifications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Start Your Groundworks Project?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional groundworks and landscaping services in Glasgow and Ayrshire. 
+          Our expert team is ready to transform your outdoor space.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="landscaping_groundworks_page" serviceName="Landscaping & Groundworks" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="landscaping_groundworks_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="landscaping_groundworks_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="landscaping_groundworks_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+

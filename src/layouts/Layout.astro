@@ -1,0 +1,462 @@
+---
+import '../index.css';
+import '../App.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  image?: string;
+  jsonLd?: Record<string, unknown>;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  robots?: string;
+}
+
+const {
+  title = "Dirtworks Landscaping Ltd | Professional Landscaping & Building Services Ayrshire & Glasgow",
+  description = "Professional landscaping & building services in Ayrshire and Glasgow. Garden maintenance, landscaping & groundworks, patios, fencing & decking, pressure washing, and building services. Free quotes available.",
+  keywords = "landscaping ayrshire, landscaping glasgow, garden maintenance ayrshire, garden maintenance glasgow, building services ayrshire, building services glasgow, pressure washing ayrshire, pressure washing glasgow, fencing ayrshire, fencing glasgow, decking ayrshire, decking glasgow, groundworks ayrshire, groundworks glasgow, landscaping contractors ayrshire, landscaping contractors glasgow, outdoor landscaping ayrshire, outdoor landscaping glasgow, professional landscaping ayrshire, professional landscaping glasgow, landscaping specialists ayrshire, landscaping specialists glasgow, garden landscaping ayrshire, garden landscaping glasgow, landscaping builders ayrshire, landscaping builders glasgow, outdoor living ayrshire, outdoor living glasgow, dirtworks landscaping",
+  canonical = "https://dirtworkslandscaping.co.uk/",
+  image = "https://dirtworkslandscaping.co.uk/Dirtworks Landscaping logo edited..webp",
+  jsonLd,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = image,
+  ogType = "website",
+  twitterTitle = title,
+  twitterDescription = description,
+  twitterImage = image,
+  robots = "index, follow",
+} = Astro.props;
+
+const baseJsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "LandscapingBusiness", "HomeImprovementContractor", "ContractorService"],
+  "name": "Dirtworks Landscaping Ltd",
+  "alternateName": "Dirtworks Landscaping",
+  "description": description,
+  "url": canonical,
+  "telephone": "+447403725998",
+  "email": "dirtworkslandscaping@outlook.com",
+  "foundingDate": "2020",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ayr",
+    "addressRegion": "Ayrshire",
+    "addressCountry": "Scotland",
+    "postalCode": "KA7"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "55.4586",
+    "longitude": "-4.6292"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Ayr",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Glasgow",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Scotland"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Kilmarnock",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Irvine",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Troon",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Prestwick",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Ardrossan",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Saltcoats",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Largs",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Girvan",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ayrshire",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "Scotland"
+      }
+    }
+  ],
+  "serviceType": [
+    "Garden Maintenance",
+    "Landscaping & Groundworks",
+    "Patios, Fencing & Decking",
+    "Pressure Washing",
+    "Building Services",
+    "Landscaping Services",
+    "Garden Care",
+    "Lawn Care",
+    "Hedge Trimming",
+    "Patio Installation",
+    "Fence Installation",
+    "Decking Installation",
+    "Driveway Installation",
+    "Artificial Grass Installation",
+    "Garden Design",
+    "Site Preparation",
+    "Drainage Systems",
+    "Brickwork",
+    "General Building",
+    "Small Extensions"
+  ],
+  "openingHours": [
+    "Mo 08:00-18:00",
+    "Tu 08:00-18:00",
+    "We 08:00-18:00",
+    "Th 08:00-18:00",
+    "Fr 08:00-18:00",
+    "Sa 09:00-16:00",
+    "Su 10:00-15:00"
+  ],
+  "priceRange": "$$",
+  "image": [
+    "https://dirtworkslandscaping.co.uk/Dirtworks Landscaping logo edited..webp",
+    "https://dirtworkslandscaping.co.uk/dirt Landscaping Hero Background.webp",
+    "https://dirtworkslandscaping.co.uk/gallery/gallery1.webp",
+    "https://dirtworkslandscaping.co.uk/gallery/Gallery 2..webp"
+  ],
+  "logo": "https://dirtworkslandscaping.co.uk/Dirtworks Landscaping logo edited..webp",
+  "sameAs": [],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Public Liability Insurance",
+      "description": "Fully insured for all landscaping and building work",
+      "credentialCategory": "insurance",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Insurance Provider"
+      }
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Professional Landscaping & Building Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garden Maintenance",
+          "description": "Regular garden maintenance including lawn care, hedge trimming, planting & tidy-ups",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dirtworks Landscaping Ltd"
+          }
+        },
+        "priceRange": "Quote on request"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Landscaping & Groundworks",
+          "description": "Complete site preparation and outdoor landscaping solutions",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dirtworks Landscaping Ltd"
+          }
+        },
+        "priceRange": "Quote on request"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Patios, Fencing & Decking",
+          "description": "Quality hardscaping installations built to last",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dirtworks Landscaping Ltd"
+          }
+        },
+        "priceRange": "Quote on request"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pressure Washing",
+          "description": "Restore the look of your outdoor surfaces",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dirtworks Landscaping Ltd"
+          }
+        },
+        "priceRange": "Quote on request"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Building Services",
+          "description": "General building, repairs and small extensions",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Dirtworks Landscaping Ltd"
+          }
+        },
+        "priceRange": "Quote on request"
+      }
+    ]
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Dirtworks Landscaping Team",
+    "jobTitle": "Landscaping & Building Specialists",
+    "description": "Professional landscaping and building contractors with years of experience"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "15",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Sarah Johnson"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "RP Build and Landscapes were absolutely brilliant! They completed our groundworks and landscaping project and the quality is outstanding. Professional, reliable, and great value for money. Would definitely use again and recommend to anyone needing landscaping work.",
+      "datePublished": "2024-11-15"
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Mike Thompson"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Excellent monoblocking installation! The team delivered on time and the workmanship is superb. Great communication throughout. Will definitely use again for future projects.",
+      "datePublished": "2024-11-10"
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Lisa Brown"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "The team helped with our artificial grass installation and did an excellent job. Very professional and the quality of work is outstanding. Very reasonable price and highly recommend!",
+      "datePublished": "2024-11-05"
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "David Wilson"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Fantastic service! They completed our groundworks and landscaping project and the work is exceptional. Very professional and delivered exactly what we wanted. Will definitely use again for future projects.",
+      "datePublished": "2024-10-28"
+    }
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Free Quote",
+      "description": "Complimentary, no-obligation quotes for all landscaping and building projects",
+      "price": "0",
+      "priceCurrency": "GBP"
+    }
+  ],
+  "paymentAccepted": ["Cash", "Bank Transfer", "Cheque"],
+  "currenciesAccepted": "GBP",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Emergency Services",
+      "value": "Available for urgent repairs and storm damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Warranty",
+      "value": "All work guaranteed with comprehensive warranty"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Equipment",
+      "value": "Professional-grade landscaping and building equipment"
+    }
+  ]
+};
+
+const finalJsonLd = jsonLd ? { ...baseJsonLd, ...jsonLd } : baseJsonLd;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Dirtworks Landscaping Ltd" />
+    <meta name="robots" content={robots} />
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="GB-SCT" />
+    <meta name="geo.placename" content="Ayrshire & Glasgow, Scotland" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Enhanced JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(finalJsonLd)} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/Dirtworks Landscaping logo edited..webp" />
+    <link rel="alternate icon" href="/Dirtworks Landscaping logo edited..webp" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/Dirtworks Landscaping logo edited..webp" as="image" type="image/webp" />
+    <link rel="preload" href="/dirt Landscaping Hero Background.webp" as="image" type="image/webp" />
+    
+    <!-- Google Fonts with font-display: swap for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35QPRJ2GD9"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-35QPRJ2GD9');
+    </script>
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Dirtworks Landscaping Ltd Logo" />
+    <meta property="og:site_name" content="Dirtworks Landscaping Ltd" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={twitterTitle} />
+    <meta name="twitter:description" content={twitterDescription} />
+    <meta name="twitter:image" content={twitterImage} />
+    <meta name="twitter:image:alt" content="Dirtworks Landscaping Ltd Logo" />
+    
+    <!-- Additional meta tags for better social sharing -->
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="msapplication-TileColor" content="#1e40af" />
+    <meta name="msapplication-TileImage" content="https://dirtworkslandscaping.co.uk/Dirtworks Landscaping logo edited..webp" />
+    
+    <!-- Global CSS imported in frontmatter -->
+  </head>
+
+  <body>
+    <slot />
+    
+    <!-- Analytics tracking script -->
+    <script is:inline>
+      // Track page view on load
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'page_view', {
+          page_path: window.location.pathname,
+          page_title: document.title,
+        });
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,297 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { ServiceCard } from '../components/ServiceCard';
+import { CheckCircle, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Pressure Washing Services",
+  "description": "Professional pressure washing services for driveways, patios, paths, and walls in Glasgow and Ayrshire. Stain removal and surface restoration.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dirtworks Landscaping Ltd",
+    "url": "https://dirtworkslandscaping.co.uk/",
+    "telephone": "+447403725998",
+    "email": "dirtworkslandscaping@outlook.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ayr",
+      "addressRegion": "Ayrshire",
+      "addressCountry": "Scotland"
+    },
+    "areaServed": ["Glasgow", "Ayrshire", "Ayr", "Kilmarnock", "Irvine", "Troon", "Prestwick"]
+  },
+  "serviceType": "Pressure Washing",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Glasgow and Ayrshire"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceRange": "Quote on request",
+    "availability": "InStock"
+  }
+};
+---
+
+<Layout
+  title="Pressure Washing Glasgow & Ayrshire | Driveway & Patio Cleaning Services"
+  description="Professional pressure washing services in Glasgow and Ayrshire. Driveway cleaning, patio restoration, and stain removal. Restore your outdoor surfaces."
+  keywords="pressure washing Glasgow, driveway cleaning Ayrshire, patio cleaning Glasgow, pressure washing services Ayr, stain removal Glasgow, outdoor cleaning Ayrshire"
+  canonical="https://dirtworkslandscaping.co.uk/pressure-washing"
+  ogType="service"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-blue-50 to-green-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Professional Pressure Washing
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700 mb-8">
+              Glasgow & Ayrshire
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Restore the look of your outdoor surfaces with our professional pressure washing services. 
+              From driveways and patios to walls and paths, we bring your outdoor spaces back to life 
+              with expert cleaning techniques and equipment.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="pressure_washing_page" serviceName="Pressure Washing" client:load />
+              <CallButton pageName="pressure_washing_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/Dirtworks pressure washing..webp" 
+              alt="Professional pressure washing services in Glasgow and Ayrshire"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services Overview */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Pressure Washing Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Professional cleaning services for all types of outdoor surfaces, 
+            using the right techniques and equipment for optimal results.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard client:load title="Driveway Cleaning" description="Restore your driveway to its original condition with professional pressure washing and stain removal." items={["Oil and grease stain removal", "Moss and algae treatment", "Dirt and grime removal", "Sealing and protection"]} />
+          <ServiceCard client:load title="Patio Restoration" description="Bring your patio back to life with professional cleaning and restoration services." items={["Deep cleaning and sanitizing", "Stain and mark removal", "Joint cleaning and re-sanding", "Protective treatment application"]} />
+          <ServiceCard client:load title="Path & Wall Cleaning" description="Clean and restore garden paths, walls, and other outdoor surfaces to enhance your property's appearance." items={["Garden path cleaning", "Wall and fence cleaning", "Decking and wood cleaning", "Soft-wash options available"]} />
+          <ServiceCard client:load title="Stain Removal" description="Specialized stain removal services for stubborn marks and discoloration on various surfaces." items={["Oil and grease stains", "Rust and mineral stains", "Organic stains (moss, algae)", "Paint and chemical stains"]} />
+          <ServiceCard client:load title="Soft-Wash Services" description="Gentle cleaning for delicate surfaces that require special care and attention." items={["Roof cleaning", "Siding and cladding", "Delicate stone surfaces", "Wood and composite materials"]} />
+          <ServiceCard client:load title="Maintenance Programs" description="Regular cleaning schedules to keep your outdoor surfaces looking their best year-round." items={["Quarterly cleaning schedules", "Seasonal maintenance", "Preventative treatments", "Flexible scheduling options"]} />
+        </div>
+      </div>
+    </section>
+
+    {/* Process Section */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Pressure Washing Process
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We follow a systematic approach to ensure every cleaning job delivers 
+            outstanding results while protecting your property.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">1</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Assessment</h3>
+            <p class="text-gray-600">
+              Thorough evaluation of surfaces, stains, and cleaning requirements 
+              to determine the best approach.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">2</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Preparation</h3>
+            <p class="text-gray-600">
+              Surface preparation, equipment setup, and protection of surrounding 
+              areas and plants.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">3</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Cleaning</h3>
+            <p class="text-gray-600">
+              Professional cleaning using appropriate pressure levels, temperatures, 
+              and cleaning solutions.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">4</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Finishing</h3>
+            <p class="text-gray-600">
+              Final inspection, protective treatments where appropriate, 
+              and cleanup of work areas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Equipment & Techniques */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Professional Equipment & Techniques
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">
+              We use professional-grade equipment and proven techniques to deliver 
+              superior cleaning results while protecting your surfaces.
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Equipment</h3>
+                <ul class="text-gray-600 space-y-2">
+                  <li>• High-pressure washers (up to 3000 PSI)</li>
+                  <li>• Hot water systems for tough stains</li>
+                  <li>• Soft-wash systems for delicate surfaces</li>
+                  <li>• Professional cleaning solutions and detergents</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Techniques</h3>
+                <ul class="text-gray-600 space-y-2">
+                  <li>• Variable pressure control for different surfaces</li>
+                  <li>• Pre-treatment of stubborn stains</li>
+                  <li>• Systematic cleaning patterns</li>
+                  <li>• Eco-friendly cleaning solutions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 rounded-xl p-8">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Why Choose Our Pressure Washing?</h3>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Professional Results</h4>
+                  <p class="text-gray-600 text-sm">Superior cleaning that restores surfaces to like-new condition</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Surface Protection</h4>
+                  <p class="text-gray-600 text-sm">Careful pressure control to avoid damage to delicate surfaces</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Eco-Friendly</h4>
+                  <p class="text-gray-600 text-sm">Biodegradable cleaning solutions safe for plants and pets</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Reliable Service</h4>
+                  <p class="text-gray-600 text-sm">Consistent results with professional equipment and techniques</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Restore Your Outdoor Surfaces?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional pressure washing services in Glasgow and Ayrshire. 
+          Transform your outdoor spaces with our expert cleaning team.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="pressure_washing_page" serviceName="Pressure Washing" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="pressure_washing_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="pressure_washing_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="pressure_washing_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+

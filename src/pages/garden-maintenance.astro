@@ -1,0 +1,348 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { AreaList } from '../components/AreaList';
+import { CheckCircle, Star, MapPin, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Garden Maintenance Services",
+  "description": "Professional garden maintenance services including lawn care, hedge trimming, planting, and seasonal maintenance in Glasgow and Ayrshire.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dirtworks Landscaping Ltd",
+    "url": "https://dirtworkslandscaping.co.uk/",
+    "telephone": "+447403725998",
+    "email": "dirtworkslandscaping@outlook.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ayr",
+      "addressRegion": "Ayrshire",
+      "addressCountry": "Scotland"
+    },
+    "areaServed": ["Glasgow", "Ayrshire", "Ayr", "Kilmarnock", "Irvine", "Troon", "Prestwick"]
+  },
+  "serviceType": "Garden Maintenance",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Glasgow and Ayrshire"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceRange": "Quote on request",
+    "availability": "InStock"
+  }
+};
+
+const glasgowAreas = ['City Centre', 'West End', 'East End', 'Southside', 'North Glasgow', 'Clydebank', 'Bearsden', 'Milngavie'];
+const ayrshireAreas = ['Ayr', 'Kilmarnock', 'Irvine', 'Troon', 'Prestwick', 'Ardrossan', 'Saltcoats', 'Largs', 'Girvan'];
+---
+
+<Layout
+  title="Garden Maintenance Glasgow & Ayrshire | Professional Lawn Care & Hedge Trimming"
+  description="Expert garden maintenance services in Glasgow and Ayrshire. Professional lawn care, hedge trimming, planting, and seasonal maintenance. Free quotes available."
+  keywords="garden maintenance Glasgow, garden maintenance Ayrshire, lawn care Glasgow, lawn care Ayrshire, hedge trimming Glasgow, hedge trimming Ayrshire, garden services Glasgow, garden services Ayrshire"
+  canonical="https://dirtworkslandscaping.co.uk/garden-maintenance"
+  ogType="service"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-green-50 to-blue-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Professional Garden Maintenance
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700 mb-8">
+              Glasgow & Ayrshire
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Keep your garden looking its best year-round with our expert garden maintenance services. 
+              From lawn care and hedge trimming to seasonal planting and tidy-ups, we provide comprehensive 
+              garden care across Glasgow and Ayrshire.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="garden_maintenance_page" serviceName="Garden Maintenance" client:load />
+              <CallButton pageName="garden_maintenance_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/Dirt Works Gardening.webp" 
+              alt="Professional garden maintenance services in Glasgow and Ayrshire"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services Overview */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Garden Maintenance Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We offer comprehensive garden maintenance services to keep your outdoor space healthy, 
+            beautiful, and well-maintained throughout the year.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Lawn Care</h3>
+            <p class="text-gray-600 mb-4">
+              Regular mowing, edging, fertilizing, and weed control to maintain a healthy, 
+              lush lawn throughout the growing season.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-1">
+              <li>• Weekly/bi-weekly mowing</li>
+              <li>• Lawn edging and trimming</li>
+              <li>• Fertilizer application</li>
+              <li>• Weed and moss control</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Hedge Trimming</h3>
+            <p class="text-gray-600 mb-4">
+              Professional hedge trimming and shaping to maintain neat, healthy hedges 
+              that enhance your garden's appearance.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-1">
+              <li>• Regular hedge trimming</li>
+              <li>• Shaping and topiary</li>
+              <li>• Hedge renovation</li>
+              <li>• Debris removal</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Planting & Tidy-ups</h3>
+            <p class="text-gray-600 mb-4">
+              Seasonal planting, pruning, and general garden tidying to keep your 
+              garden looking fresh and well-maintained.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-1">
+              <li>• Seasonal planting</li>
+              <li>• Pruning and deadheading</li>
+              <li>• Garden tidying</li>
+              <li>• Mulching and feeding</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Seasonal Maintenance</h3>
+            <p class="text-gray-600 mb-4">
+              Year-round garden care including spring preparation, summer maintenance, 
+              autumn cleanup, and winter protection.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-1">
+              <li>• Spring garden preparation</li>
+              <li>• Summer maintenance</li>
+              <li>• Autumn leaf clearance</li>
+              <li>• Winter protection</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Garden Design</h3>
+            <p class="text-gray-600 mb-4">
+              Professional garden design and planting schemes to create beautiful, 
+              functional outdoor spaces.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-1">
+              <li>• Garden design consultation</li>
+              <li>• Planting schemes</li>
+              <li>• Border design</li>
+              <li>• Plant selection</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <CheckCircle client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Emergency Services</h3>
+            <p class="text-gray-600 mb-4">
+              Urgent garden maintenance and storm damage repair services when you need them most.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-1">
+              <li>• Storm damage repair</li>
+              <li>• Emergency tree work</li>
+              <li>• Urgent garden clearance</li>
+              <li>• 24/7 emergency response</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Why Choose Us */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Dirtworks for Garden Maintenance?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            With years of experience serving Glasgow and Ayrshire, we understand the unique 
+            challenges of maintaining gardens in Scotland's climate.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Expert Knowledge</h3>
+            <p class="text-gray-600">
+              Our team has extensive knowledge of Scottish plants, soil conditions, and climate challenges.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Reliable Service</h3>
+            <p class="text-gray-600">
+              Consistent, reliable garden maintenance with flexible scheduling to suit your needs.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Local Expertise</h3>
+            <p class="text-gray-600">
+              Serving Glasgow and Ayrshire with deep understanding of local conditions and requirements.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Free Quotes</h3>
+            <p class="text-gray-600">
+              No-obligation quotes for all garden maintenance services with transparent pricing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Service Areas */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Garden Maintenance Service Areas
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We provide professional garden maintenance services across Glasgow and Ayrshire, 
+            including all major towns and cities.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Glasgow Areas</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <AreaList client:load areas={glasgowAreas} />
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Ayrshire Areas</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <AreaList client:load areas={ayrshireAreas} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Transform Your Garden?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional garden maintenance services in Glasgow and Ayrshire. 
+          Our expert team is ready to help you create and maintain the garden of your dreams.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="garden_maintenance_page" serviceName="Garden Maintenance" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="garden_maintenance_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="garden_maintenance_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="garden_maintenance_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+

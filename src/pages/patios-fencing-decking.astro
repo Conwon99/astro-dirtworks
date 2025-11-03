@@ -1,0 +1,361 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { CheckCircle, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Patios, Fencing & Decking Services",
+  "description": "Quality patio installation, fencing, and decking services including repairs and maintenance in Glasgow and Ayrshire.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dirtworks Landscaping Ltd",
+    "url": "https://dirtworkslandscaping.co.uk/",
+    "telephone": "+447403725998",
+    "email": "dirtworkslandscaping@outlook.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ayr",
+      "addressRegion": "Ayrshire",
+      "addressCountry": "Scotland"
+    },
+    "areaServed": ["Glasgow", "Ayrshire", "Ayr", "Kilmarnock", "Irvine", "Troon", "Prestwick"]
+  },
+  "serviceType": "Patios, Fencing & Decking",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Glasgow and Ayrshire"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceRange": "Quote on request",
+    "availability": "InStock"
+  }
+};
+---
+
+<Layout
+  title="Patio Installation Glasgow | Fencing & Decking Services Ayrshire | Dirtworks"
+  description="Quality patio installation, fencing, and decking services in Glasgow and Ayrshire. Professional hardscaping installations built to last. Free quotes."
+  keywords="patio installation Ayrshire, fencing contractor Glasgow, decking installation Ayr, patio cleaning Glasgow, fence repair Ayrshire, decking maintenance Glasgow"
+  canonical="https://dirtworkslandscaping.co.uk/patios-fencing-decking"
+  ogType="service"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-gray-50 to-blue-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Patios, Fencing & Decking
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700 mb-8">
+              Glasgow & Ayrshire
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Quality hardscaping installations built to last. From beautiful patios and secure fencing 
+              to stunning decking areas, we create outdoor spaces that enhance your property and 
+              withstand Scottish weather conditions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="patios_fencing_decking_page" serviceName="Patios, Fencing & Decking" client:load />
+              <CallButton pageName="patios_fencing_decking_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/dirt landscaping fencing..webp" 
+              alt="Professional patios, fencing and decking services in Glasgow and Ayrshire"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services Overview */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Hardscaping Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Professional installation and maintenance of patios, fencing, and decking 
+            designed to enhance your outdoor living space.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Patios */}
+          <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Patio Installation</h3>
+            <p class="text-gray-600 mb-6">
+              Beautiful, durable patios that provide the perfect foundation for outdoor 
+              entertaining and relaxation.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2 mb-6">
+              <li>• Natural stone patios</li>
+              <li>• Concrete and block paving</li>
+              <li>• Pattern and design options</li>
+              <li>• Drainage and foundation work</li>
+              <li>• Sealing and protection</li>
+              <li>• Repair and maintenance</li>
+            </ul>
+            <div class="text-sm text-gray-600">
+              <strong>Materials:</strong> Natural stone, concrete blocks, porcelain tiles, 
+              composite materials
+            </div>
+          </div>
+
+          {/* Fencing */}
+          <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Fencing Services</h3>
+            <p class="text-gray-600 mb-6">
+              Secure, attractive fencing solutions that provide privacy, security, 
+              and enhance your property's appearance.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2 mb-6">
+              <li>• Wooden fence installation</li>
+              <li>• Metal and composite fencing</li>
+              <li>• Garden boundary fencing</li>
+              <li>• Security fencing</li>
+              <li>• Fence repairs and maintenance</li>
+              <li>• Gate installation</li>
+            </ul>
+            <div class="text-sm text-gray-600">
+              <strong>Materials:</strong> Timber, composite, metal, chain link, 
+              decorative panels
+            </div>
+          </div>
+
+          {/* Decking */}
+          <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Decking Installation</h3>
+            <p class="text-gray-600 mb-6">
+              Stunning decking areas that extend your living space outdoors and 
+              create perfect areas for relaxation and entertainment.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2 mb-6">
+              <li>• Timber decking installation</li>
+              <li>• Composite decking</li>
+              <li>• Raised decking areas</li>
+              <li>• Decking repairs and maintenance</li>
+              <li>• Staining and protection</li>
+              <li>• Balustrade and railings</li>
+            </ul>
+            <div class="text-sm text-gray-600">
+              <strong>Materials:</strong> Hardwood, softwood, composite decking, 
+              pressure-treated timber
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Installation Process */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Installation Process
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We follow a systematic approach to ensure every hardscaping project is completed 
+            to the highest standards with lasting results.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">1</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Site Assessment</h3>
+            <p class="text-gray-600">
+              Detailed site survey including measurements, access evaluation, 
+              and ground condition assessment.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">2</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Design & Planning</h3>
+            <p class="text-gray-600">
+              Custom design development with material selection, layout planning, 
+              and project timeline creation.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">3</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Preparation</h3>
+            <p class="text-gray-600">
+              Ground preparation, foundation work, and material delivery 
+              to ensure optimal installation conditions.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">4</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Installation</h3>
+            <p class="text-gray-600">
+              Professional installation with attention to detail, quality control, 
+              and final finishing touches.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Materials & Maintenance */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Quality Materials & Maintenance
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">
+              We use only the highest quality materials and provide comprehensive maintenance 
+              services to ensure your hardscaping investment lasts for years to come.
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Material Quality</h3>
+                <ul class="text-gray-600 space-y-2">
+                  <li>• Premium grade materials from trusted suppliers</li>
+                  <li>• Weather-resistant options for Scottish climate</li>
+                  <li>• Sustainable and eco-friendly choices available</li>
+                  <li>• Wide range of colors, textures, and finishes</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Maintenance Services</h3>
+                <ul class="text-gray-600 space-y-2">
+                  <li>• Regular cleaning and maintenance programs</li>
+                  <li>• Sealing and protection treatments</li>
+                  <li>• Repair services for wear and damage</li>
+                  <li>• Seasonal maintenance and care advice</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 rounded-xl p-8">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Why Choose Our Hardscaping?</h3>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Expert Installation</h4>
+                  <p class="text-gray-600 text-sm">Professional installation techniques for lasting results</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Quality Materials</h4>
+                  <p class="text-gray-600 text-sm">Premium materials selected for durability and appearance</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Weather Protection</h4>
+                  <p class="text-gray-600 text-sm">Materials and techniques suited to Scottish weather</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <CheckCircle client:load className="w-6 h-6 text-green-600 mr-3 mt-1" />
+                <div>
+                  <h4 class="font-semibold text-gray-900">Warranty & Support</h4>
+                  <p class="text-gray-600 text-sm">Comprehensive warranty and ongoing maintenance support</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Transform Your Outdoor Space?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional patio, fencing, and decking services in Glasgow and Ayrshire. 
+          Create the perfect outdoor living space with our expert team.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="patios_fencing_decking_page" serviceName="Patios, Fencing & Decking" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="patios_fencing_decking_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="patios_fencing_decking_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="patios_fencing_decking_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+

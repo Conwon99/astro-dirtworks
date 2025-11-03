@@ -1,0 +1,348 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { ServiceCard } from '../components/ServiceCard';
+import { TownCard } from '../components/TownCard';
+import { CheckCircle, Star, MapPin, Phone as PhoneIcon, Mail, Clock, ArrowRight } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Dirtworks Landscaping Ltd - Ayrshire Services",
+  "description": "Professional landscaping and building services across Ayrshire including Ayr, Kilmarnock, Irvine, Troon, and Prestwick.",
+  "url": "https://dirtworkslandscaping.co.uk/ayrshire",
+  "telephone": "+447403725998",
+  "email": "dirtworkslandscaping@outlook.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ayr",
+    "addressRegion": "Ayrshire",
+    "addressCountry": "Scotland"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Ayr",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Kilmarnock",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Irvine",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Troon",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    },
+    {
+      "@type": "City",
+      "name": "Prestwick",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Ayrshire"
+      }
+    }
+  ],
+  "serviceType": [
+    "Landscaping Services",
+    "Garden Maintenance",
+    "Patio Installation",
+    "Fencing Services",
+    "Decking Installation",
+    "Pressure Washing",
+    "Building Services"
+  ]
+};
+
+const ayrshireTowns = [
+  'Ayr', 'Kilmarnock', 'Irvine', 'Troon', 'Prestwick', 'Ardrossan', 
+  'Saltcoats', 'Largs', 'Girvan', 'Cumnock', 'Maybole', 'Stewarton',
+  'Dalry', 'Beith', 'Kilwinning', 'Stevenston', 'West Kilbride'
+];
+---
+
+<Layout
+  title="Landscaping Ayrshire | Garden Services Ayr, Kilmarnock, Irvine | Dirtworks"
+  description="Expert landscaping services across Ayrshire including Ayr, Kilmarnock, Irvine, Troon, and Prestwick. Garden maintenance, patios, and building services."
+  keywords="landscaping Ayrshire, garden services Ayrshire, landscaping Ayr, landscaping Kilmarnock, landscaping Irvine, landscaping Troon, landscaping Prestwick, garden maintenance Ayrshire, patio installation Ayrshire, fencing Ayrshire"
+  canonical="https://dirtworkslandscaping.co.uk/ayrshire"
+  ogType="website"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-blue-50 to-green-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Landscaping Services in Ayrshire
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Professional landscaping and building services across Ayrshire. From Ayr to Kilmarnock, 
+              Irvine to Troon, we bring expert garden maintenance, patio installation, fencing, and 
+              building services to your doorstep.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="ayrshire_page" serviceName="" client:load />
+              <CallButton pageName="ayrshire_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/dirt Landscaping Hero Background.webp" 
+              alt="Professional landscaping services in Ayrshire"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Ayrshire Overview */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Serving All of Ayrshire
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">
+              Ayrshire's diverse landscape, from the coastal towns of Ayr and Troon to the inland 
+              communities of Kilmarnock and Irvine, presents unique challenges and opportunities 
+              for landscaping and garden maintenance.
+            </p>
+            <p class="text-lg text-gray-600 mb-8">
+              Our team understands the local climate, soil conditions, and architectural styles 
+              that make Ayrshire special. We work with the natural environment to create beautiful, 
+              sustainable outdoor spaces that thrive in Scotland's weather.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <CheckCircle client:load className="w-5 h-5 text-green-600 mr-3" />
+                <span class="text-gray-700">Local Expertise</span>
+              </div>
+              <div class="flex items-center">
+                <CheckCircle client:load className="w-5 h-5 text-green-600 mr-3" />
+                <span class="text-gray-700">Climate Knowledge</span>
+              </div>
+              <div class="flex items-center">
+                <CheckCircle client:load className="w-5 h-5 text-green-600 mr-3" />
+                <span class="text-gray-700">Soil Understanding</span>
+              </div>
+              <div class="flex items-center">
+                <CheckCircle client:load className="w-5 h-5 text-green-600 mr-3" />
+                <span class="text-gray-700">Architectural Awareness</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-100 rounded-xl p-8">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Ayrshire Climate & Conditions</h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Coastal Areas (Ayr, Troon, Prestwick)</h4>
+                <p class="text-gray-600 text-sm">
+                  Salt-tolerant plants, wind-resistant landscaping, and materials that withstand 
+                  coastal weather conditions.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Inland Areas (Kilmarnock, Irvine)</h4>
+                <p class="text-gray-600 text-sm">
+                  Clay soil management, drainage solutions, and plants suited to inland 
+                  Scottish climate conditions.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Hills & Valleys (Cumnock, Maybole)</h4>
+                <p class="text-gray-600 text-sm">
+                  Sloping garden solutions, erosion control, and landscaping that works 
+                  with natural terrain features.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Service Areas */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Ayrshire Towns & Cities We Serve
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We provide professional landscaping and building services across all major 
+            towns and cities in Ayrshire.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ayrshireTowns.map((town) => (
+            <TownCard key={town} client:load town={town} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Services in Ayrshire */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Services in Ayrshire
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive landscaping and building services tailored to Ayrshire's 
+            unique environment and your specific needs.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard client:load title="Garden Maintenance" description="Regular garden maintenance including lawn care, hedge trimming, and seasonal planting across Ayrshire." items={["Lawn care and maintenance", "Hedge trimming and shaping", "Seasonal planting", "Garden tidying and cleanup"]} />
+          <ServiceCard client:load title="Landscaping & Groundworks" description="Complete site preparation and outdoor landscaping solutions for Ayrshire properties." items={["Site preparation and clearance", "Drainage systems", "Foundations and excavation", "Garden design and planning"]} />
+          <ServiceCard client:load title="Patios, Fencing & Decking" description="Quality hardscaping installations built to withstand Ayrshire's weather conditions." items={["Patio installation and repair", "Fencing installation and maintenance", "Decking construction", "Hardscaping solutions"]} />
+          <ServiceCard client:load title="Pressure Washing" description="Professional pressure washing to restore and maintain outdoor surfaces in Ayrshire." items={["Driveway cleaning", "Patio restoration", "Path and wall cleaning", "Stain removal"]} />
+          <ServiceCard client:load title="Building Services" description="General building, repairs, and small extensions for Ayrshire homes and businesses." items={["Brickwork and repairs", "Small extensions", "General building work", "Property maintenance"]} />
+          <ServiceCard client:load title="Emergency Services" description="Urgent repairs and storm damage restoration across Ayrshire when you need us most." items={["Storm damage repair", "Emergency garden clearance", "Urgent fence repairs", "24/7 emergency response"]} />
+        </div>
+      </div>
+    </section>
+
+    {/* Local Knowledge */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Local Ayrshire Knowledge
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Our deep understanding of Ayrshire's unique characteristics helps us deliver 
+            landscaping solutions that work perfectly in your local environment.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Soil Conditions</h3>
+            <p class="text-gray-600">
+              Understanding of Ayrshire's clay soils, coastal conditions, and drainage requirements.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Plant Selection</h3>
+            <p class="text-gray-600">
+              Knowledge of plants that thrive in Ayrshire's climate and soil conditions.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Weather Patterns</h3>
+            <p class="text-gray-600">
+              Experience with Ayrshire's weather patterns and seasonal maintenance requirements.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <ArrowRight client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Local Access</h3>
+            <p class="text-gray-600">
+              Familiarity with Ayrshire's roads, access routes, and local planning requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Transform Your Ayrshire Garden?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional landscaping services in Ayrshire. 
+          Our local experts are ready to help you create the perfect outdoor space.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="ayrshire_page" serviceName="" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="ayrshire_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="ayrshire_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="ayrshire_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+

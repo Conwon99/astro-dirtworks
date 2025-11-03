@@ -1,0 +1,285 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../components/ServicePageButton';
+import { ServiceCard } from '../components/ServiceCard';
+import { CheckCircle, Star, MapPin, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Building Services",
+  "description": "Professional building services including small extensions, brickwork, general building, and construction services in Glasgow and Ayrshire.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dirtworks Landscaping Ltd",
+    "url": "https://dirtworkslandscaping.co.uk/",
+    "telephone": "+447403725998",
+    "email": "dirtworkslandscaping@outlook.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ayr",
+      "addressRegion": "Ayrshire",
+      "addressCountry": "Scotland"
+    },
+    "areaServed": ["Glasgow", "Ayrshire", "Ayr", "Kilmarnock", "Irvine", "Troon", "Prestwick"]
+  },
+  "serviceType": "Building Services",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Glasgow and Ayrshire"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceRange": "Quote on request",
+    "availability": "InStock"
+  }
+};
+---
+
+<Layout
+  title="Building Services Glasgow & Ayrshire | Extensions & Construction | Dirtworks"
+  description="Professional building services in Glasgow and Ayrshire. Small extensions, brickwork, general building, and construction services. Licensed contractors."
+  keywords="building services Glasgow, small extensions Ayrshire, brickwork contractor Glasgow, general building Ayr, construction services Glasgow, building contractor Ayrshire"
+  canonical="https://dirtworkslandscaping.co.uk/building-services"
+  ogType="service"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-gray-50 to-blue-50 py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Building Services
+            </h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700 mb-8">
+              Glasgow & Ayrshire
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+              Professional building and construction services for residential and commercial projects. 
+              From small extensions and brickwork to general building services, we deliver quality 
+              construction solutions across Glasgow and Ayrshire.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <QuoteButton pageName="building_services_page" serviceName="Building Services" client:load />
+              <CallButton pageName="building_services_page" client:load />
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="/Services/Dirtworks building..webp" 
+              alt="Professional building services in Glasgow and Ayrshire"
+              class="rounded-2xl shadow-2xl w-full h-auto"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services Overview */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Building Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive building and construction services designed to meet your 
+            residential and commercial project needs.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard client:load title="Small Extensions" description="Professional extension services to add space and value to your property." items={["Single-story extensions", "Kitchen extensions", "Conservatory installations", "Planning permission assistance"]} />
+          <ServiceCard client:load title="Brickwork" description="Expert brickwork services for construction, repairs, and restoration projects." items={["New brick construction", "Brick repairs and repointing", "Chimney work", "Decorative brick features"]} />
+          <ServiceCard client:load title="General Building" description="Comprehensive building services for various construction and renovation needs." items={["Structural repairs", "Renovation work", "Building maintenance", "Construction projects"]} />
+          <ServiceCard client:load title="Construction Services" description="Full construction services from planning to completion for various project types." items={["New build construction", "Commercial projects", "Residential developments", "Project management"]} />
+          <ServiceCard client:load title="Renovation Work" description="Complete renovation services to transform and modernize existing properties." items={["Property refurbishment", "Modernization projects", "Structural improvements", "Interior renovations"]} />
+          <ServiceCard client:load title="Maintenance Services" description="Ongoing maintenance and repair services to keep your property in excellent condition." items={["Regular maintenance programs", "Emergency repairs", "Preventative maintenance", "Building inspections"]} />
+        </div>
+      </div>
+    </section>
+
+    {/* Process Section */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Building Process
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We follow a systematic approach to ensure every building project is completed 
+            to the highest standards with full compliance and quality assurance.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">1</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Consultation</h3>
+            <p class="text-gray-600">
+              Initial consultation to understand your requirements, assess the site, 
+              and discuss project feasibility.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">2</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Planning</h3>
+            <p class="text-gray-600">
+              Detailed project planning including design development, planning applications, 
+              and timeline creation.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">3</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Construction</h3>
+            <p class="text-gray-600">
+              Professional construction work with regular progress updates and 
+              quality control inspections.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">4</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Completion</h3>
+            <p class="text-gray-600">
+              Final inspection, snagging, handover documentation, and ongoing 
+              support and maintenance advice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Why Choose Us */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Dirtworks for Building Services?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            With extensive experience in building and construction, we deliver quality 
+            projects that meet your requirements and exceed expectations.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Licensed & Insured</h3>
+            <p class="text-gray-600">
+              Fully licensed and insured building contractors with comprehensive 
+              public liability and professional indemnity insurance.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Materials</h3>
+            <p class="text-gray-600">
+              We use only high-quality materials from trusted suppliers, ensuring 
+              durability and long-lasting results.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Local Knowledge</h3>
+            <p class="text-gray-600">
+              Deep understanding of local building regulations, planning requirements, 
+              and construction standards in Glasgow and Ayrshire.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-8 h-8 text-green-600" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Project Management</h3>
+            <p class="text-gray-600">
+              Complete project management from initial consultation through to 
+              final completion with regular progress updates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600">
+      <div class="container mx-auto max-w-4xl text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Start Your Building Project?
+        </h2>
+        <p class="text-xl text-green-100 mb-8">
+          Get a free quote for professional building services in Glasgow and Ayrshire. 
+          Our expert team is ready to bring your construction project to life.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <QuoteButton pageName="building_services_page" serviceName="Building Services" className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+          <CallButton pageName="building_services_page" className="border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-full" client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Info */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <PhoneIcon client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+            <PhoneLink pageName="building_services_page" phone="07403 725998" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+            <EmailLink pageName="building_services_page" email="dirtworkslandscaping@outlook.com" client:load />
+          </div>
+          <div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Clock client:load className="w-6 h-6 text-green-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+            <p class="text-gray-600">Mon-Fri: 8:00 AM - 6:00 PM</p>
+            <p class="text-gray-600">Sat: 9:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+  
+  <script>
+    window.scrollTo(0, 0);
+  </script>
+</Layout>
+
