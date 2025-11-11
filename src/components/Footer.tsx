@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-import { trackExternalLink } from "@/utils/analytics";
+import { trackExternalLink, trackPhoneCall, trackFacebookPageClick } from "@/utils/analytics";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,10 +18,10 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-white" />
-                  <a 
+                    <a 
                     href="tel:+447403725998" 
                     className="text-white hover:text-gray-300 transition-colors font-semibold"
-                    onClick={() => trackExternalLink('phone', 'footer')}
+                    onClick={() => trackPhoneCall('footer')}
                   >
                     (07403) 725998
                   </a>
@@ -171,7 +171,11 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/80 hover:text-white transition-colors"
-                onClick={() => trackExternalLink('facebook', 'footer')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  trackFacebookPageClick('footer');
+                  window.open('https://www.facebook.com', '_blank');
+                }}
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />

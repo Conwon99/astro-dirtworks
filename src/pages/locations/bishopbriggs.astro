@@ -216,10 +216,21 @@ const canonical = `https://dirtworkslandscaping.co.uk/locations/${locationName.t
           </p>
           <a 
             href="/#contact-form"
+            id="location-cta-quote-bishopbriggs"
             class="inline-block bg-white text-green-600 font-bold text-lg px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
           >
             Get a Free Quote
           </a>
+          <script is:inline>
+            document.getElementById('location-cta-quote-bishopbriggs')?.addEventListener('click', function(e) {
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'quote_request', {
+                  event_category: 'engagement',
+                  source: 'location_bishopbriggs_cta'
+                });
+              }
+            });
+          </script>
         </div>
       </div>
     </section>

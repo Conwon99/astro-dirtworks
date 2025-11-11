@@ -42,14 +42,16 @@ export function trackPhoneCall(source: string): void {
     if (typeof window === "undefined") return;
 
     if (typeof window.gtag === "function") {
-      window.gtag("event", "phone_call", {
+      window.gtag("event", "phone_click", {
+        event_category: "engagement",
         source: source,
       });
     }
 
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({
-        event: "phone_call",
+        event: "phone_click",
+        event_category: "engagement",
         source: source,
       });
     }
@@ -85,6 +87,7 @@ export function trackQuoteRequest(source: string, services: string[]): void {
 
     if (typeof window.gtag === "function") {
       window.gtag("event", "quote_request", {
+        event_category: "engagement",
         source: source,
         services: services,
       });
@@ -93,6 +96,7 @@ export function trackQuoteRequest(source: string, services: string[]): void {
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({
         event: "quote_request",
+        event_category: "engagement",
         source: source,
         services: services,
       });
@@ -102,25 +106,32 @@ export function trackQuoteRequest(source: string, services: string[]): void {
   }
 }
 
-export function trackMessenger(source: string): void {
+export function trackFacebookMessengerClick(source: string): void {
   try {
     if (typeof window === "undefined") return;
 
     if (typeof window.gtag === "function") {
-      window.gtag("event", "messenger_click", {
+      window.gtag("event", "facebook_messenger_click", {
+        event_category: "engagement",
         source: source,
       });
     }
 
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({
-        event: "messenger_click",
+        event: "facebook_messenger_click",
+        event_category: "engagement",
         source: source,
       });
     }
   } catch {
     // Swallow errors
   }
+}
+
+// Legacy function name for backwards compatibility
+export function trackMessenger(source: string): void {
+  trackFacebookMessengerClick(source);
 }
 
 export function trackFormInteraction(action: string, formData?: Record<string, unknown>): void {
@@ -244,6 +255,7 @@ export function trackWhatsAppClick(source: string): void {
 
     if (typeof window.gtag === "function") {
       window.gtag("event", "whatsapp_click", {
+        event_category: "engagement",
         source: source,
       });
     }
@@ -251,6 +263,7 @@ export function trackWhatsAppClick(source: string): void {
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({
         event: "whatsapp_click",
+        event_category: "engagement",
         source: source,
       });
     }
@@ -317,6 +330,29 @@ export function trackTimeOnPage(timeInSeconds: number): void {
       window.dataLayer.push({
         event: "time_on_page",
         time_seconds: timeInSeconds,
+      });
+    }
+  } catch {
+    // Swallow errors
+  }
+}
+
+export function trackFacebookPageClick(source: string): void {
+  try {
+    if (typeof window === "undefined") return;
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "facebook_page_click", {
+        event_category: "engagement",
+        source: source,
+      });
+    }
+
+    if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({
+        event: "facebook_page_click",
+        event_category: "engagement",
+        source: source,
       });
     }
   } catch {

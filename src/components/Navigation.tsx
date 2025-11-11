@@ -61,7 +61,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Home", onClick: () => handleNavClick("hero"), isLink: false },
-    { label: "Services", onClick: () => handleNavClick("services"), isLink: false },
+    { label: "Services", onClick: () => { window.location.href = "/services"; }, isLink: true },
     { label: "Locations", onClick: () => { window.location.href = "/locations"; }, isLink: true },
     { label: "Gallery", onClick: () => handleNavClick("gallery"), isLink: false },
     { label: "FAQ", onClick: () => handleNavClick("faq"), isLink: false },

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Home, Facebook, Truck } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-import { trackWhatsAppClick } from "@/utils/analytics";
+import { trackWhatsAppClick, trackFacebookPageClick } from "@/utils/analytics";
 
 const AboutUs = () => {
   return (
@@ -27,6 +27,11 @@ const AboutUs = () => {
                   href="https://www.facebook.com/profile.php?id=61573221204538" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    trackFacebookPageClick('about_us');
+                    window.open('https://www.facebook.com/profile.php?id=61573221204538', '_blank');
+                  }}
                   className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors flex-shrink-0"
                 >
                   <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-white" />

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X, Facebook } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
-import { trackGalleryInteraction, trackExternalLink } from "@/utils/analytics";
+import { trackGalleryInteraction, trackFacebookPageClick } from "@/utils/analytics";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -39,8 +39,10 @@ const Gallery = () => {
     }
   };
 
-  const handleFacebookClick = () => {
-    trackExternalLink('https://www.facebook.com/profile.php?id=61573221204538', 'View more work on Facebook');
+  const handleFacebookClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    trackFacebookPageClick('gallery');
+    window.open('https://www.facebook.com/profile.php?id=61573221204538', '_blank');
   };
 
   return (

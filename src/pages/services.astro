@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import LazyImage from '../components/LazyImage';
+
+const services = [
+  {
+    title: "Garden Maintenance",
+    description: "Keep your garden looking its best year-round with our expert garden maintenance services. From lawn care and hedge trimming to seasonal planting and tidy-ups, we provide comprehensive garden care across Glasgow and Ayrshire.",
+    features: [
+      "Regular lawn mowing and edging",
+      "Hedge trimming and shaping",
+      "Seasonal planting and pruning",
+      "Garden tidying and maintenance",
+      "Fertilizer and weed control",
+      "Mulching and feeding"
+    ],
+    image: "/Services/Dirt Works Gardening.webp",
+    link: "/garden-maintenance/",
+  },
+  {
+    title: "Landscaping & Groundworks",
+    description: "Complete site preparation and outdoor landscaping solutions. From excavation and drainage systems to foundations and site clearance, we deliver professional groundworks services for residential and commercial projects.",
+    features: [
+      "Site preparation and clearance",
+      "Drainage systems installation",
+      "Foundations and excavation",
+      "Garden design and landscaping",
+      "Terracing and leveling",
+      "Retaining walls"
+    ],
+    image: "/Services/Dirt Works at Groundwork..webp",
+    link: "/landscaping-groundworks/",
+  },
+  {
+    title: "Patios, Fencing & Decking",
+    description: "Quality hardscaping installations built to last. We design and install beautiful patios, durable fencing, and stylish decking to enhance your outdoor living space and add value to your property.",
+    features: [
+      "Patio installation and repair",
+      "Fencing installation and repairs",
+      "Decking construction",
+      "Hardscaping solutions",
+      "Garden paths and walkways",
+      "Outdoor living spaces"
+    ],
+    image: "/Services/dirt landscaping fencing..webp",
+    link: "/patios-fencing-decking/",
+  },
+  {
+    title: "Pressure Washing",
+    description: "Restore the look of your outdoor surfaces with our professional pressure washing services. From driveways and patios to paths and walls, we bring surfaces back to life with expert cleaning techniques.",
+    features: [
+      "Driveway and patio cleaning",
+      "Path and wall cleaning",
+      "Stain removal",
+      "Soft-wash options",
+      "Gutter cleaning",
+      "Outdoor furniture cleaning"
+    ],
+    image: "/Services/Dirtworks pressure washing..webp",
+    link: "/pressure-washing/",
+  },
+  {
+    title: "Building Services",
+    description: "General building, repairs and small extensions. From brickwork and structural repairs to small extensions and renovation work, we provide comprehensive building services for residential and commercial properties.",
+    features: [
+      "Brickwork and repairs",
+      "Small extensions",
+      "General building work",
+      "Property maintenance",
+      "Renovation projects",
+      "Construction services"
+    ],
+    image: "/Services/Dirtworks building..webp",
+    link: "/building-services/",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Landscaping and Building Services",
+  "description": "Professional landscaping and building services in Glasgow and Ayrshire including garden maintenance, landscaping, patios, fencing, decking, pressure washing, and building services.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dirtworks Landscaping Ltd",
+    "url": "https://dirtworkslandscaping.co.uk/",
+    "telephone": "+447403725998",
+    "email": "dirtworkslandscaping@outlook.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ayr",
+      "addressRegion": "Ayrshire",
+      "addressCountry": "Scotland"
+    },
+    "areaServed": ["Glasgow", "Ayrshire"]
+  },
+  "serviceType": [
+    "Garden Maintenance",
+    "Landscaping & Groundworks",
+    "Patios, Fencing & Decking",
+    "Pressure Washing",
+    "Building Services"
+  ],
+  "areaServed": {
+    "@type": "Place",
+    "name": "Glasgow and Ayrshire"
+  }
+};
+
+const title = "Our Services - Professional Landscaping & Building Services | Dirtworks";
+const description = "Comprehensive landscaping and building services in Glasgow and Ayrshire. Garden maintenance, landscaping, patios, fencing, decking, pressure washing, and building services. Free quotes available.";
+const canonical = "https://dirtworkslandscaping.co.uk/services";
+---
+
+<Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <Navigation client:load />
+
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-green-600 to-green-800 text-white py-20 px-4 overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <LazyImage
+          client:load
+          src="/dirt Landscaping Hero Background.webp"
+          alt="Landscaping services background"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div class="container mx-auto max-w-6xl relative z-10">
+        <div class="text-center">
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Our Services
+          </h1>
+          <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90">
+            Professional landscaping and building services across Glasgow and Ayrshire
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Services Section - Alternating Layout */}
+    {services.map((service, index) => {
+      const isEven = index % 2 === 0;
+      return (
+        <section class={`py-20 px-4 ${isEven ? 'bg-white' : 'bg-gray-50'}`}>
+          <div class="container mx-auto max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div class={isEven ? '' : 'lg:order-2'}>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {service.title}
+                </h2>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                  {service.description}
+                </p>
+                <ul class="space-y-3 mb-8">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                      </svg>
+                      <span class="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a 
+                  href={service.link}
+                  class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl"
+                >
+                  Learn More
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </a>
+              </div>
+
+              {/* Image */}
+              <div class={`relative ${isEven ? '' : 'lg:order-1'}`}>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <LazyImage
+                    client:load
+                    src={service.image}
+                    alt={`${service.title} services in Glasgow and Ayrshire`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600 text-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+            Ready to Get Started?
+          </h2>
+          <p class="text-xl max-w-3xl mx-auto mb-8 opacity-90">
+            Contact us today for a free, no-obligation quote on any of our professional landscaping and building services.
+          </p>
+          <a 
+            href="/#contact-form"
+            id="services-page-cta"
+            class="inline-block bg-white text-green-600 font-bold text-lg px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            Get a Free Quote
+          </a>
+          <script is:inline>
+            document.getElementById('services-page-cta')?.addEventListener('click', function(e) {
+              if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'quote_request', {
+                  event_category: 'engagement',
+                  source: 'services_page_cta'
+                });
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+</Layout>
+
