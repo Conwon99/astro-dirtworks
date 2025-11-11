@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { ArrowRight, MapPin } from 'lucide-react';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Service Locations - Dirtworks Landscaping",
+  "description": "Professional landscaping and building services across Ayrshire and Glasgow. Find your local service area.",
+  "url": "https://dirtworkslandscaping.co.uk/locations"
+};
+
+// Ayrshire locations
+const ayrshireLocations = [
+  {
+    name: "Ayr",
+    slug: "ayr",
+    serviceAreas: ["Ayr", "Alloway", "Prestwick", "Troon"]
+  },
+  {
+    name: "Kilmarnock",
+    slug: "kilmarnock",
+    serviceAreas: ["Kilmarnock", "Hurlford", "Crosshouse", "Dalrymple"]
+  },
+  {
+    name: "Irvine",
+    slug: "irvine",
+    serviceAreas: ["Irvine", "Kilwinning", "Stevenston", "Dreghorn"]
+  },
+  {
+    name: "Troon",
+    slug: "troon",
+    serviceAreas: ["Troon", "Prestwick", "Ayr", "Barassie"]
+  },
+  {
+    name: "Prestwick",
+    slug: "prestwick",
+    serviceAreas: ["Prestwick", "Ayr", "Troon", "Monkton"]
+  },
+  {
+    name: "Ardrossan",
+    slug: "ardrossan",
+    serviceAreas: ["Ardrossan", "Saltcoats", "Stevenston", "West Kilbride"]
+  },
+  {
+    name: "Saltcoats",
+    slug: "saltcoats",
+    serviceAreas: ["Saltcoats", "Ardrossan", "Stevenston", "Irvine"]
+  },
+  {
+    name: "Largs",
+    slug: "largs",
+    serviceAreas: ["Largs", "Fairlie", "West Kilbride", "Skelmorlie"]
+  },
+  {
+    name: "Girvan",
+    slug: "girvan",
+    serviceAreas: ["Girvan", "Maybole", "Dailly", "Ballantrae"]
+  },
+  {
+    name: "Cumnock",
+    slug: "cumnock",
+    serviceAreas: ["Cumnock", "New Cumnock", "Ochiltree", "Muirkirk"]
+  },
+  {
+    name: "Maybole",
+    slug: "maybole",
+    serviceAreas: ["Maybole", "Girvan", "Ayr", "Kirkoswald"]
+  },
+  {
+    name: "Stewarton",
+    slug: "stewarton",
+    serviceAreas: ["Stewarton", "Dunlop", "Kilmaurs", "Kilmarnock"]
+  },
+  {
+    name: "Dalry",
+    slug: "dalry",
+    serviceAreas: ["Dalry", "Beith", "Kilbirnie", "Largs"]
+  },
+  {
+    name: "Beith",
+    slug: "beith",
+    serviceAreas: ["Beith", "Dalry", "Kilbirnie", "Lochwinnoch"]
+  },
+  {
+    name: "Kilwinning",
+    slug: "kilwinning",
+    serviceAreas: ["Kilwinning", "Irvine", "Stevenston", "Dreghorn"]
+  },
+  {
+    name: "Stevenston",
+    slug: "stevenston",
+    serviceAreas: ["Stevenston", "Saltcoats", "Ardrossan", "Irvine"]
+  },
+  {
+    name: "West Kilbride",
+    slug: "west-kilbride",
+    serviceAreas: ["West Kilbride", "Largs", "Fairlie", "Ardrossan"]
+  }
+];
+
+// Glasgow locations
+const glasgowLocations = [
+  {
+    name: "Glasgow City Center",
+    slug: "glasgow-city-center",
+    serviceAreas: ["Glasgow City Center", "Merchant City", "West End", "East End"]
+  },
+  {
+    name: "North Glasgow",
+    slug: "north-glasgow",
+    serviceAreas: ["Maryhill", "Possilpark", "Springburn", "Ruchill"]
+  },
+  {
+    name: "South Glasgow",
+    slug: "south-glasgow",
+    serviceAreas: ["Govan", "Pollokshields", "Shawlands", "Newlands"]
+  },
+  {
+    name: "East Glasgow",
+    slug: "east-glasgow",
+    serviceAreas: ["Dennistoun", "Bridgeton", "Shettleston", "Tollcross"]
+  },
+  {
+    name: "West Glasgow",
+    slug: "west-glasgow",
+    serviceAreas: ["Partick", "Whiteinch", "Scotstoun", "Yoker"]
+  },
+  {
+    name: "Bearsden",
+    slug: "bearsden",
+    serviceAreas: ["Bearsden", "Milngavie", "Bishopbriggs", "Kirkintilloch"]
+  },
+  {
+    name: "Milngavie",
+    slug: "milngavie",
+    serviceAreas: ["Milngavie", "Bearsden", "Bishopbriggs", "Strathblane"]
+  },
+  {
+    name: "Bishopbriggs",
+    slug: "bishopbriggs",
+    serviceAreas: ["Bishopbriggs", "Kirkintilloch", "Lenzie", "Bearsden"]
+  },
+  {
+    name: "Kirkintilloch",
+    slug: "kirkintilloch",
+    serviceAreas: ["Kirkintilloch", "Bishopbriggs", "Lenzie", "Milton of Campsie"]
+  }
+];
+
+const title = "Service Locations | Landscaping & Building Services Ayrshire & Glasgow";
+const description = "Professional landscaping and building services across Ayrshire and Glasgow. Find your local service area and get a free quote today.";
+const canonical = "https://dirtworkslandscaping.co.uk/locations";
+---
+
+<Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="bg-gradient-to-br from-green-600 to-green-800 text-white py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+          <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            Service Locations
+          </h1>
+          <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+            Professional Landscaping & Building Services Across Ayrshire & Glasgow
+          </p>
+          <p class="text-lg mt-4 max-w-2xl mx-auto opacity-90">
+            Dirtworks Landscaping provides comprehensive landscaping and building services throughout Ayrshire and Glasgow. 
+            Our strategically positioned teams ensure rapid response times for all your landscaping and building needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Ayrshire Locations */}
+    <section class="py-16 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+          Ayrshire
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ayrshireLocations.map((location) => (
+            <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="font-display text-xl font-bold text-gray-900 mb-2">
+                    {location.name}
+                  </h3>
+                  <p class="text-sm text-gray-600 mb-3">Service Areas:</p>
+                  <p class="text-sm text-gray-700 mb-4">
+                    {location.serviceAreas.join(", ")}
+                  </p>
+                </div>
+              </div>
+              <a 
+                href={`/locations/${location.slug}`}
+                class="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors group"
+              >
+                View Details
+                <ArrowRight class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Glasgow Locations */}
+    <section class="py-16 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+          Glasgow
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {glasgowLocations.map((location) => (
+            <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="font-display text-xl font-bold text-gray-900 mb-2">
+                    {location.name}
+                  </h3>
+                  <p class="text-sm text-gray-600 mb-3">Service Areas:</p>
+                  <p class="text-sm text-gray-700 mb-4">
+                    {location.serviceAreas.join(", ")}
+                  </p>
+                </div>
+              </div>
+              <a 
+                href={`/locations/${location.slug}`}
+                class="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors group"
+              >
+                View Details
+                <ArrowRight class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Stats Section */}
+    <section class="py-16 px-4 bg-green-600 text-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="text-4xl font-bold mb-2">30+</div>
+            <div class="text-lg opacity-90">Towns & Areas Covered</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold mb-2">24/7</div>
+            <div class="text-lg opacity-90">Emergency Service Available</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold mb-2">100%</div>
+            <div class="text-lg opacity-90">Satisfaction Guaranteed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+</Layout>
+

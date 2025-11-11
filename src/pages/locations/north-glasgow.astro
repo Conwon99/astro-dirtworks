@@ -1,0 +1,233 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation';
+import Footer from '../../components/Footer';
+import { QuoteButton, CallButton, PhoneLink, EmailLink } from '../../components/ServicePageButton';
+import { ServiceCard } from '../../components/ServiceCard';
+import LazyImage from '../../components/LazyImage';
+import { CheckCircle, MapPin, Phone as PhoneIcon, Mail, Clock } from 'lucide-react';
+
+const locationName = "North Glasgow";
+const region = "Glasgow";
+const serviceAreas = ["Maryhill", "Possilpark", "Springburn", "Ruchill"];
+const nearbyTowns = ["Maryhill", "Possilpark", "Springburn", "City Center"];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `Dirtworks Landscaping Ltd - ${locationName}`,
+  "description": `Professional landscaping and building services in ${locationName}, ${region}. Garden maintenance, landscaping, patios, fencing, decking, pressure washing, and building services.`,
+  "url": `https://dirtworkslandscaping.co.uk/locations/${locationName.toLowerCase()}`,
+  "telephone": "+447403725998",
+  "email": "dirtworkslandscaping@outlook.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": locationName,
+    "addressRegion": region,
+    "addressCountry": "Scotland"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": locationName
+  },
+  "serviceType": [
+    "Landscaping Services",
+    "Garden Maintenance",
+    "Patio Installation",
+    "Fencing Services",
+    "Decking Installation",
+    "Pressure Washing",
+    "Building Services"
+  ],
+  "openingHours": "Mo-Fr 08:00-18:00,Sa 09:00-16:00",
+  "priceRange": "Quote on request"
+};
+
+const title = `Landscaping Services ${locationName} ${region} | Garden Maintenance & Building Services | Dirtworks`;
+const description = `Professional landscaping & building services in North Glasgow, Glasgow. Garden maintenance, landscaping, patios, fencing & decking. Free quotes available.`;
+const canonical = `https://dirtworkslandscaping.co.uk/locations/${locationName.toLowerCase()}`;
+---
+
+<Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <Navigation client:load />
+  
+  <main class="min-h-screen">
+    {/* Hero Section */}
+    <section class="relative bg-gradient-to-br from-green-600 to-green-800 text-white py-20 px-4 overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <LazyImage 
+          client:load
+          src="/Services/dirt Landscaping Hero Background.webp"
+          alt="Landscaping services background"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div class="container mx-auto max-w-6xl relative z-10">
+        <div class="text-center">
+          <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            Landscaping Services in {locationName}
+          </h1>
+          <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+            Professional Landscaping & Building Services in {locationName}, {region}
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <QuoteButton client:load />
+            <CallButton client:load />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Service Areas */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+          <div>
+            <div class="text-center mb-12 md:mb-0">
+              <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Service Areas in {locationName}
+              </h2>
+              <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+                North Glasgow encompasses vibrant areas like Maryhill, Possilpark, and Springburn. Our landscaping team understands the unique needs of properties in this diverse part of the city.
+              </p>
+              <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Whether you're in a traditional tenement or a modern development, we provide landscaping solutions that enhance your property's value and appeal.
+              </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+              {serviceAreas.map((area) => (
+                <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
+                  <CheckCircle class="w-5 h-5 text-green-600 flex-shrink-0" />
+                  <span class="text-gray-900 font-medium">{area}</span>
+                </div>
+              ))}
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
+              <p class="text-gray-700">
+                <strong>Nearby Areas We Serve:</strong> {nearbyTowns.join(", ")}
+              </p>
+            </div>
+          </div>
+          <div class="relative h-96 rounded-lg overflow-hidden shadow-lg">
+            <LazyImage 
+              client:load
+              src="/gallery/gallery1.webp"
+              alt={`Landscaping work in ${locationName}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Gallery Section */}
+    <section class="py-20 px-4 bg-gray-50">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Work in {locationName}
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            See examples of our professional landscaping and building projects in {locationName} and surrounding areas.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+          <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
+            <LazyImage 
+              client:load
+              src="/Services/Dirt Works Gardening.webp"
+              alt="Garden maintenance in North Glasgow"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
+            <LazyImage 
+              client:load
+              src="/Services/dirt landscaping fencing..webp"
+              alt="Fencing installation in North Glasgow"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="relative h-64 rounded-lg overflow-hidden shadow-lg group">
+            <LazyImage 
+              client:load
+              src="/gallery/Gallery 2..webp"
+              alt="Landscaping project in North Glasgow"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services */}
+    <section class="py-20 px-4 bg-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Our Services in {locationName}
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive landscaping and building services for homes and businesses in {locationName}.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ServiceCard 
+            client:load
+            title="Garden Maintenance"
+            description="Regular lawn care, hedge trimming, planting, and seasonal maintenance."
+            items={["Lawn care and maintenance", "Hedge trimming and shaping", "Seasonal planting", "Garden tidying"]}
+          />
+          <ServiceCard 
+            client:load
+            title="Landscaping & Groundworks"
+            description="Site preparation, drainage systems, foundations, and excavation."
+            items={["Site preparation and clearance", "Drainage systems", "Foundations and excavation", "Garden design"]}
+          />
+          <ServiceCard 
+            client:load
+            title="Patios, Fencing & Decking"
+            description="Professional hardscaping installations built to last."
+            items={["Patio installation and repair", "Fencing installation", "Decking construction", "Hardscaping solutions"]}
+          />
+          <ServiceCard 
+            client:load
+            title="Pressure Washing"
+            description="Driveway cleaning, patio restoration, and stain removal."
+            items={["Driveway cleaning", "Patio restoration", "Path and wall cleaning", "Stain removal"]}
+          />
+          <ServiceCard 
+            client:load
+            title="Building Services"
+            description="Small extensions, brickwork, general building, and construction."
+            items={["Brickwork and repairs", "Small extensions", "General building work", "Property maintenance"]}
+          />
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="py-20 px-4 bg-green-600 text-white">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">
+            Get Your Free Quote in {locationName}
+          </h2>
+          <p class="text-xl max-w-3xl mx-auto mb-8 opacity-90">
+            Contact us today for professional landscaping and building services in {locationName}, {region}.
+          </p>
+          <a 
+            href="/#contact-form"
+            class="inline-block bg-white text-green-600 font-bold text-lg px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            Get a Free Quote
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+</Layout>
+

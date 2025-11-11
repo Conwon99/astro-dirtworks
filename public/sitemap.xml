@@ -7,125 +7,249 @@
   <!-- Homepage -->
   <url>
     <loc>https://dirtworkslandscaping.co.uk/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Services Section -->
+  <!-- Main Pages -->
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/#services</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/glasgow/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- About Section -->
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/#about</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Contact Section -->
-  <url>
-    <loc>https://dirtworkslandscaping.co.uk/#contact-form</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Gallery Section -->
-  <url>
-    <loc>https://dirtworkslandscaping.co.uk/#gallery</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Reviews Section -->
-  <url>
-    <loc>https://dirtworkslandscaping.co.uk/#reviews</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- FAQ Section -->
-  <url>
-    <loc>https://dirtworkslandscaping.co.uk/#faq</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Glasgow Location Page -->
-  <url>
-    <loc>https://dirtworkslandscaping.co.uk/glasgow</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Ayrshire Location Page -->
-  <url>
-    <loc>https://dirtworkslandscaping.co.uk/ayrshire</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/ayrshire/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Service Pages -->
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/garden-maintenance</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/garden-maintenance/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/landscaping-groundworks/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/patios-fencing-decking/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/pressure-washing/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/building-services/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Location Pages - Ayrshire -->
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/ayr/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/landscaping-groundworks</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/kilmarnock/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/patios-fencing-decking</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/irvine/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/pressure-washing</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/troon/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/building-services</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/prestwick/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/landscaping-groundworks</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/ardrossan/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/patios-fencing-decking</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/saltcoats/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://dirtworkslandscaping.co.uk/pressure-washing</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://dirtworkslandscaping.co.uk/locations/largs/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/girvan/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/cumnock/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/maybole/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/stewarton/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/dalry/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/beith/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/kilwinning/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/stevenston/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/west-kilbride/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Location Pages - Glasgow -->
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/glasgow-city-center/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/north-glasgow/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/south-glasgow/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/east-glasgow/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/west-glasgow/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/bearsden/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/milngavie/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/bishopbriggs/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dirtworkslandscaping.co.uk/locations/kirkintilloch/</loc>
+    <lastmod>2025-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

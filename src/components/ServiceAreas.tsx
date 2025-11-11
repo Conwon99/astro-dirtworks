@@ -4,16 +4,16 @@ import { trackPhoneCall, trackWhatsAppClick } from "@/utils/analytics";
 
 const ServiceAreas = () => {
   const serviceAreas = [
-    "Ayr",
-    "Glasgow",
-    "Kilmarnock",
-    "Irvine",
-    "Troon",
-    "Prestwick",
-    "Ardrossan",
-    "Saltcoats",
-    "Largs",
-    "Girvan"
+    { name: "Ayr", link: "/locations/ayr/" },
+    { name: "Glasgow", link: "/glasgow/" },
+    { name: "Kilmarnock", link: "/locations/kilmarnock/" },
+    { name: "Irvine", link: "/locations/irvine/" },
+    { name: "Troon", link: "/locations/troon/" },
+    { name: "Prestwick", link: "/locations/prestwick/" },
+    { name: "Ardrossan", link: "/locations/ardrossan/" },
+    { name: "Saltcoats", link: "/locations/saltcoats/" },
+    { name: "Largs", link: "/locations/largs/" },
+    { name: "Girvan", link: "/locations/girvan/" }
   ];
 
   return (
@@ -64,16 +64,27 @@ const ServiceAreas = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {serviceAreas.map((area, index) => (
-                <div
+                <a
                   key={index}
+                  href={area.link}
                   className="flex items-center gap-3 p-3 rounded-lg bg-background border border-border hover:border-primary/30 transition-colors group"
                 >
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
                   <span className="text-foreground font-medium group-hover:text-primary transition-colors">
-                    {area}
+                    {area.name}
                   </span>
-                </div>
+                </a>
               ))}
+            </div>
+            
+            <div className="text-center pt-4">
+              <a
+                href="/locations/"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+              >
+                View All Locations
+                <MapPin className="w-5 h-5" />
+              </a>
             </div>
 
             <div className="bg-primary/10 rounded-xl p-6 border border-primary/20">
