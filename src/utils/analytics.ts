@@ -86,7 +86,7 @@ export function trackQuoteRequest(source: string, services: string[]): void {
     if (typeof window === "undefined") return;
 
     if (typeof window.gtag === "function") {
-      window.gtag("event", "quote_request", {
+      window.gtag("event", "form_submission", {
         event_category: "engagement",
         source: source,
         services: services,
@@ -95,7 +95,7 @@ export function trackQuoteRequest(source: string, services: string[]): void {
 
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({
-        event: "quote_request",
+        event: "form_submission",
         event_category: "engagement",
         source: source,
         services: services,
@@ -353,6 +353,31 @@ export function trackFacebookPageClick(source: string): void {
         event: "facebook_page_click",
         event_category: "engagement",
         source: source,
+      });
+    }
+  } catch {
+    // Swallow errors
+  }
+}
+
+export function trackQuoteButtonClick(source: string, services: string[] = []): void {
+  try {
+    if (typeof window === "undefined") return;
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "quote_button_click", {
+        event_category: "engagement",
+        source: source,
+        services: services,
+      });
+    }
+
+    if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({
+        event: "quote_button_click",
+        event_category: "engagement",
+        source: source,
+        services: services,
       });
     }
   } catch {

@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { trackQuoteRequest, trackServiceClick } from "@/utils/analytics";
+import { trackServiceClick } from "@/utils/analytics";
 
 type ServiceCard = {
   title: string;
@@ -49,11 +47,6 @@ const SERVICE_CARDS: ServiceCard[] = [
 ];
 
 const ServicesGrid = () => {
-  const handleQuoteClick = (serviceTitle: string) => {
-    trackQuoteRequest('services_grid', [serviceTitle]);
-    trackServiceClick(serviceTitle, 'services_grid');
-    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section id="services" className="py-20 px-4 bg-gradient-to-b from-background to-[hsl(var(--muted))]">
@@ -106,18 +99,14 @@ const ServicesGrid = () => {
                   </ul>
                 </div>
 
-                <div className="mt-6 flex gap-2">
+                <div className="mt-6">
                   <a 
                     href={service.link}
-                    className="flex-1 text-center px-4 py-2 bg-[hsl(var(--muted))] hover:bg-[hsl(var(--muted))]/80 text-[hsl(var(--asphalt-grey))] font-semibold rounded-full transition-colors"
+                    className="block w-full text-center px-4 py-2 bg-[hsl(var(--muted))] hover:bg-[hsl(var(--muted))]/80 text-[hsl(var(--asphalt-grey))] font-semibold rounded-full transition-colors"
                     onClick={() => trackServiceClick(service.title, 'services_grid')}
                   >
-                    Learn More About {service.title}
+                    Learn more
                   </a>
-                  <Button onClick={() => handleQuoteClick(service.title)} className="flex-1 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold rounded-full">
-                    Get Quote
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
                 </div>
               </div>
             </article>

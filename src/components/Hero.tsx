@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
 import LazyImage from "@/components/LazyImage";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-import { trackPhoneCall, trackWhatsAppClick, trackQuoteRequest, trackFormInteraction } from "@/utils/analytics";
+import { trackPhoneCall, trackQuoteRequest, trackFormInteraction } from "@/utils/analytics";
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -49,8 +49,16 @@ const Hero = () => {
         }),
       });
 
-      if (response.ok) {
-        // Track successful form submission
+      // Parse response to check actual Formspree status
+      const data = await response.json();
+      
+      // Check both HTTP status AND Formspree response body
+      // Formspree returns { ok: true } or { success: true } on success
+      // Or { error: "message" } on failure
+      const isSuccess = response.ok && (data.ok === true || data.success === true || (!data.error && !data.errors));
+      
+      if (isSuccess) {
+        // Only track if Formspree confirms successful submission
         trackQuoteRequest('contact_form', [formData.service]);
         trackFormInteraction('quote_form', 'submit_success');
         
@@ -67,13 +75,15 @@ const Hero = () => {
           message: ''
         });
       } else {
-        throw new Error('Failed to send message');
+        // Formspree rejected the submission (spam, validation, etc.)
+        const errorMessage = data.error || data.errors?.[0]?.message || 'Failed to send message';
+        throw new Error(errorMessage);
       }
     } catch (error) {
       trackFormInteraction('quote_form', 'submit_error');
       toast({
         title: "Error sending request",
-        description: "Please try again or contact us directly.",
+        description: error instanceof Error ? error.message : "Please try again or contact us directly.",
         variant: "destructive",
       });
     }
@@ -84,13 +94,12 @@ const Hero = () => {
     window.location.href = "tel:+447403725998";
   };
 
-  const handleMessengerClick = () => {
-    trackWhatsAppClick('whatsapp_click_hero');
-    window.open("https://wa.me/447403725998", "_blank");
+  const handleQuoteClick = () => {
+    window.location.href = "/contact";
   };
 
   return (
-    <section id="hero" className="relative bg-background min-h-screen flex items-center py-20 px-4 pt-32 overflow-hidden w-full">
+    <section id="hero" className="relative bg-background min-h-screen flex items-center py-20 px-3 sm:px-6 pt-28 md:pt-32 overflow-hidden w-full">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <LazyImage
@@ -102,29 +111,29 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20"></div>
       </div>
       
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10 px-3 sm:px-6">
         <div className="flex justify-start">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl w-full">
           {/* Text Content */}
           <div className="text-left space-y-8">
             <div className="space-y-6">
               
-              <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
+              <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg break-words">
                 <span className="relative inline-block text-white">
                   Professional
                   <img 
                     src="/undelrine svg1.svg" 
                     alt="" 
-                    className="absolute top-1/2 left-0 w-full h-16 md:h-20 lg:h-24 object-contain -z-10 max-w-full overflow-hidden"
+                    className="absolute top-1/2 left-0 w-full h-16 md:h-20 lg:h-24 object-contain -z-10 max-w-full"
                   />
                 </span> Landscaping & Building Services
               </h1>
-              <h2 className="font-display font-bold text-2xl lg:text-3xl text-white drop-shadow-lg flex items-center gap-3">
-                <MapPin className="w-6 h-6" />
-                Ayrshire & Glasgow
+              <h2 className="font-display font-bold text-2xl lg:text-3xl text-white drop-shadow-lg flex items-center gap-3 flex-wrap">
+                <MapPin className="w-6 h-6 flex-shrink-0" />
+                <span className="break-words">Ayrshire & Glasgow</span>
               </h2>
               
-              <p className="text-lg text-white/90 font-medium max-w-lg leading-relaxed drop-shadow-md">
+              <p className="text-lg text-white/90 font-medium max-w-lg leading-relaxed drop-shadow-md break-words">
                 Expert landscaping and building specialists serving Ayrshire and Glasgow. Professional garden maintenance, landscaping & groundworks, patios, fencing & decking, pressure washing, and building services. Trusted contractors delivering premium outdoor solutions
               </p>
             </div>
@@ -133,25 +142,25 @@ const Hero = () => {
 
             {/* Quick Contact */}
             <div className="pt-4 border-t border-white/20">
-              <p className="text-white text-lg font-semibold mb-3 text-center sm:text-left">Give us a call or a Whatsapp for a <span className="font-bold text-green-400">FREE QUOTE</span></p>
               <div className="flex flex-col sm:flex-row gap-4 w-full justify-center sm:justify-start">
               <Button 
-                onClick={handleMessengerClick}
-                className="inline-flex items-center justify-center gap-3 px-10 py-8 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg"
+                onClick={handleQuoteClick}
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-6 sm:py-8 bg-gradient-to-br from-green-500 via-green-600 to-green-700 text-white rounded-lg font-semibold shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 text-base sm:text-lg relative overflow-hidden border border-white/20 w-full sm:w-auto"
               >
-                <WhatsAppIcon className="w-8 h-8" />
-                WhatsApp
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shine"></span>
+                <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 flex-shrink-0" />
+                <span className="relative z-10 whitespace-nowrap">GET A FREE QUOTE</span>
               </Button>
               <Button 
                 onClick={handleCallClick}
-                className="inline-flex items-center gap-4 px-10 py-8 bg-transparent hover:bg-transparent text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-10 py-6 sm:py-8 bg-transparent hover:bg-transparent text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-md">
-                  <Phone className="w-7 h-7 text-blue-500" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
+                  <Phone className="w-6 h-6 sm:w-7 sm:h-7 text-blue-500" />
                 </div>
-                <div className="flex flex-col items-start">
-                  <span className="text-sm text-gray-300 font-medium">CALL US NOW</span>
-                  <span className="text-xl font-bold text-white">07403 725998</span>
+                <div className="flex flex-col items-start min-w-0">
+                  <span className="text-xs sm:text-sm text-gray-300 font-medium whitespace-nowrap">CALL US NOW</span>
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white break-all">07403 725998</span>
                 </div>
               </Button>
               </div>

@@ -204,23 +204,14 @@ const canonical = "https://dirtworkslandscaping.co.uk/services";
           <p class="text-xl max-w-3xl mx-auto mb-8 opacity-90">
             Contact us today for a free, no-obligation quote on any of our professional landscaping and building services.
           </p>
-          <a 
-            href="/#contact-form"
+          <a
+            href="/contact"
             id="services-page-cta"
             class="inline-block bg-white text-green-600 font-bold text-lg px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
           >
             Get a Free Quote
           </a>
-          <script is:inline>
-            document.getElementById('services-page-cta')?.addEventListener('click', function(e) {
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'quote_request', {
-                  event_category: 'engagement',
-                  source: 'services_page_cta'
-                });
-              }
-            });
-          </script>
+          <!-- Removed quote_request tracking - only track on successful form submissions, not button clicks -->
         </div>
       </div>
     </section>

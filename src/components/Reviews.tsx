@@ -1,5 +1,5 @@
 import { Star, ArrowRight } from "lucide-react";
-import { trackQuoteRequest } from "@/utils/analytics";
+// Removed trackQuoteRequest import - only track on successful form submissions, not button clicks
 
 const Reviews = () => {
   const reviews = [
@@ -60,7 +60,7 @@ const Reviews = () => {
           {/* Contact button */}
           <button
             onClick={() => {
-              trackQuoteRequest('reviews_section', []);
+              // Removed trackQuoteRequest - only track on successful form submissions, not button clicks
               document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
             }}
             className="bg-white border-2 border-black text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2"

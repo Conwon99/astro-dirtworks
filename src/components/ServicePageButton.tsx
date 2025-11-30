@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
-import { trackQuoteRequest, trackPhoneCall, trackEmailClick } from "@/utils/analytics";
+import { trackPhoneCall, trackEmailClick } from "@/utils/analytics";
 
 interface QuoteButtonProps {
   pageName: string;
@@ -10,8 +10,8 @@ interface QuoteButtonProps {
 
 export const QuoteButton = ({ pageName, serviceName, className }: QuoteButtonProps) => {
   const handleQuoteClick = () => {
-    trackQuoteRequest(pageName, serviceName ? [serviceName] : []);
-    window.location.href = "/#contact-form";
+    // Removed trackQuoteRequest - only track on successful form submissions, not button clicks
+    window.location.href = "/contact";
   };
 
   return (

@@ -20,3 +20,8 @@ export const AreaCard = ({ title, areas }: AreaCardProps) => {
 
 
 
+
+
+
+
+

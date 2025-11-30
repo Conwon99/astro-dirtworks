@@ -45,7 +45,16 @@ const ContactSection = () => {
         }),
       });
 
-      if (response.ok) {
+      // Parse response to check actual Formspree status
+      const data = await response.json();
+      
+      // Check both HTTP status AND Formspree response body
+      // Formspree returns { ok: true } or { success: true } on success
+      // Or { error: "message" } on failure
+      const isSuccess = response.ok && (data.ok === true || data.success === true || (!data.error && !data.errors));
+      
+      if (isSuccess) {
+        // Only track if Formspree confirms successful submission
         trackQuoteRequest('contact_form', [formData.service]);
         trackFormInteraction('quote_form', { status: 'submit_success' });
         
@@ -62,13 +71,15 @@ const ContactSection = () => {
           message: ''
         });
       } else {
-        throw new Error('Failed to send message');
+        // Formspree rejected the submission (spam, validation, etc.)
+        const errorMessage = data.error || data.errors?.[0]?.message || 'Failed to send message';
+        throw new Error(errorMessage);
       }
     } catch (error) {
       trackFormInteraction('quote_form', { status: 'submit_error' });
       toast({
         title: "Error sending request",
-        description: "Please try again or contact us directly.",
+        description: error instanceof Error ? error.message : "Please try again or contact us directly.",
         variant: "destructive",
       });
     }

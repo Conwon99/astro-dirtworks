@@ -1,0 +1,317 @@
+{
+  "executive_summary": {
+    "total_pages": 15,
+    "thin_content_pages": 15,
+    "duplicate_titles": 0,
+    "duplicate_metas": 0,
+    "link_issues": 0,
+    "orphaned_pages": 0,
+    "redirect_chains": 0,
+    "redirect_loops": 0,
+    "temp_redirects": 0,
+    "404_errors": 0,
+    "missing_meta": 7,
+    "short_meta": 0,
+    "long_meta": 2
+  },
+  "thin_content": [
+    {
+      "url": "",
+      "word_count": 535,
+      "text_ratio": 6.799,
+      "h1": "Professional Landscaping & Building Services",
+      "h2_count": 2,
+      "meta_desc_len": 207,
+      "title_len": 91,
+      "issues": [
+        "Long meta description: 207 chars",
+        "Long title: 91 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 0,
+      "text_ratio": 0.0,
+      "h1": "",
+      "h2_count": 0,
+      "meta_desc_len": 0,
+      "title_len": 0,
+      "issues": [
+        "Low word count: 0",
+        "Low text ratio: 0.0%",
+        "Missing H1",
+        "Missing H2 tags",
+        "Short meta description: 0 chars",
+        "Short title: 0 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 453,
+      "text_ratio": 9.912,
+      "h1": "Building Services",
+      "h2_count": 2,
+      "meta_desc_len": 151,
+      "title_len": 76,
+      "issues": [
+        "Long title: 76 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 490,
+      "text_ratio": 11.065,
+      "h1": "Patios, Fencing & Decking",
+      "h2_count": 2,
+      "meta_desc_len": 149,
+      "title_len": 76,
+      "issues": [
+        "Long title: 76 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 536,
+      "text_ratio": 10.418,
+      "h1": "Professional Pressure Washing",
+      "h2_count": 2,
+      "meta_desc_len": 151,
+      "title_len": 72,
+      "issues": [
+        "Long title: 72 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 735,
+      "text_ratio": 10.95,
+      "h1": "Landscaping Services in Ayrshire",
+      "h2_count": 2,
+      "meta_desc_len": 151,
+      "title_len": 74,
+      "issues": [
+        "Long title: 74 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 458,
+      "text_ratio": 9.571,
+      "h1": "Professional Garden Maintenance",
+      "h2_count": 2,
+      "meta_desc_len": 158,
+      "title_len": 79,
+      "issues": [
+        "Long title: 79 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 441,
+      "text_ratio": 9.615,
+      "h1": "Landscaping & Groundworks",
+      "h2_count": 2,
+      "meta_desc_len": 161,
+      "title_len": 78,
+      "issues": [
+        "Long meta description: 161 chars",
+        "Long title: 78 chars"
+      ]
+    },
+    {
+      "url": "",
+      "word_count": 499,
+      "text_ratio": 9.155,
+      "h1": "Landscaping Services Glasgow",
+      "h2_count": 2,
+      "meta_desc_len": 160,
+      "title_len": 81,
+      "issues": [
+        "Long title: 81 chars"
+      ]
+    }
+  ],
+  "duplicates": {
+    "duplicate_titles": {},
+    "duplicate_metas": {},
+    "canonical_issues": [
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/building-services",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/patios-fencing-decking",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/pressure-washing",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/ayrshire",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/garden-maintenance",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/landscaping-groundworks",
+        "status": "Different canonical"
+      },
+      {
+        "url": "",
+        "canonical": "https://dirtworkslandscaping.co.uk/glasgow",
+        "status": "Different canonical"
+      }
+    ]
+  },
+  "links": {
+    "link_issues": [],
+    "orphaned_pages": []
+  },
+  "redirects": {
+    "redirect_chains": [],
+    "redirect_loops": [],
+    "temp_redirects": [],
+    "slow_redirects": []
+  },
+  "404s": [],
+  "meta_descriptions": {
+    "missing": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "short": [],
+    "long": [
+      {
+        "url": "",
+        "length": 207,
+        "meta": "Professional landscaping & building services in Ayrshire and Glasgow. Garden maintenance, landscapin..."
+      },
+      {
+        "url": "",
+        "length": 161,
+        "meta": "Complete landscaping and groundworks services in Glasgow and Ayrshire. Site preparation, drainage sy..."
+      }
+    ]
+  }
+}
